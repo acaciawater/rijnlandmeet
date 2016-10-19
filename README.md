@@ -1,2 +1,2 @@
-# fryslan
-Fryslan Meet
+# rijnlandmeet
+Rijnland Meet

@@ -7,5 +7,5 @@ Created on Oct 13, 2016
 from django.apps import AppConfig
 class IomConfig(AppConfig):
     name = 'iom'
-    verbose_name = 'Fryslan Meet'
+    verbose_name = 'Rijnland Meet'
     
