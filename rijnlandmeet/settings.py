@@ -15,8 +15,8 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-os.sys.path.append('/home/stephane/git/acaciadata')
-os.sys.path.append('/home/stephane/git/iom')
+os.sys.path.append('/home/theo/texelmeet/acaciadata')
+os.sys.path.append('/home/theo/texelmeet/iom')
 
 SITE_ID = 1
 
@@ -46,7 +46,6 @@ INSTALLED_APPS = (
     'acacia.data',
     'acacia.data.events',
     'registration',
-    'djcelery',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -65,7 +64,6 @@ ROOT_URLCONF = 'iom.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-#        'DIRS': ['/home/theo/texelmeet/fryslan/fryslan/templates'],
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -117,9 +115,6 @@ LOGIN_REDIRECT_URL = '/'
 REGISTRATION_AUTO_LOGIN = True
 
 AUTH_PROFILE_MODULE = 'iom.UserProfile'
-
-CELERY_RESULT_BACKEND = 'amqp'
-CELERY_TASK_RESULT_EXPIRES = 18000  # 5 hours.
 
 # Logging
 LOGGING = {
