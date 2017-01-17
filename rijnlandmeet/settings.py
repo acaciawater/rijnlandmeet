@@ -59,7 +59,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'iom.urls'
+ROOT_URLCONF = 'rijnlandmeet.urls'
 
 TEMPLATES = [
     {
