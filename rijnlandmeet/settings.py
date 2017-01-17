@@ -15,9 +15,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-os.sys.path.append('/home/theo/texelmeet/acaciadata')
-os.sys.path.append('/home/theo/texelmeet/iom')
-
 SITE_ID = 1
 
 # Quick-start development settings - unsuitable for production
