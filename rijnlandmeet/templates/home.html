@@ -288,7 +288,7 @@ function removeSearch() {
 <div class= "row">
 <div class="col-md-12">
 <div class="update text-muted"><small>Geactualiseerd op {{akvo.last_update}}. Laatste waarneming door <a href="{% url 'waarnemer-detail' laatste.waarnemer.id %}">{{laatste.waarnemer}}</a> op {{laatste.datum}}</small></div>
-<div class="update pull-right"><a href="fews" title="Download FEWS tijdreeksen"><img class="fews" src="{% static "fews.png" %}"></img></a></div>
+<div class="update pull-right"><a href="fews/{{object.pk}}" title="Download FEWS tijdreeksen"><img class="fews" src="{% static "fews.png" %}"></img></a></div>
 </div>
 </div>
 {% endif %}
