@@ -3,6 +3,8 @@
 	<name>rijnlandmeet</name>
 	<comment></comment>
 	<projects>
+		<project>acaciadata</project>
+		<project>iom</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
