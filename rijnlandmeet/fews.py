@@ -20,7 +20,7 @@ def prettify(elem):
     reparsed = minidom.parseString(rough_string)
     return reparsed.toprettyxml(indent="  ")
 
-def add_series(root,series):
+def add_series_old(root,series):
     s = ET.SubElement(root,'series')
     h = ET.SubElement(s,'header')
     ET.SubElement(h,'type').text='instantaneous'
@@ -34,6 +34,38 @@ def add_series(root,series):
     ET.SubElement(h,'missVal').text='-999'
     ET.SubElement(h,'longName').text=series.name
     ET.SubElement(h,'units').text=series.unit
+    for p in series.datapoints.all():
+        date = p.date.replace(microsecond=0)
+        ET.SubElement(s,'event',{'date':str(date.date()), 'time':str(date.time()), 'value': str(p.value)})
+        
+    return root
+
+def add_series(root,series):
+
+    loc = series.meetlocatie()
+    
+    s = ET.SubElement(root,'series')
+    h = ET.SubElement(s,'header')
+    ET.SubElement(h,'type').text='instantaneous'
+    ET.SubElement(h,'locationId').text=str(loc.id)
+    # parameter is something like EC, EC_diep, EC_ondiep etc...
+    ET.SubElement(h,'parameterId').text=series.name
+    ET.SubElement(h,'timeStep',{'unit': 'nonequidistant'})
+    start = series.van().replace(microsecond=0)
+    ET.SubElement(h,'startDate',{'date': str(start.date()),'time': str(start.time())})
+    end = series.tot().replace(microsecond=0)
+    ET.SubElement(h,'endDate',{'date': str(end.date()),'time': str(end.time())})
+    ET.SubElement(h,'missVal').text='-999'
+    ET.SubElement(h,'longName').text=unicode(loc.meetpunt.waarnemer)
+    ET.SubElement(h,'stationName').text=unicode(loc)
+    ET.SubElement(h,'units').text=series.unit
+    ET.SubElement(h,'x').text='%.2f' % loc.location.x
+    ET.SubElement(h,'y').text='%.2f' % loc.location.y
+
+    ll = loc.latlon()
+    ET.SubElement(h,'lon').text='%.8f' % ll.x
+    ET.SubElement(h,'lat').text='%.8f' % ll.y
+    
     for p in series.datapoints.all():
         date = p.date.replace(microsecond=0)
         ET.SubElement(s,'event',{'date':str(date.date()), 'time':str(date.time()), 'value': str(p.value)})
