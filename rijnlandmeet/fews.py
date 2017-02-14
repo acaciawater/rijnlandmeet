@@ -61,7 +61,9 @@ def add_series(root,series):
     ET.SubElement(h,'units').text=series.unit
     ET.SubElement(h,'x').text='%.1f' % loc.location.x
     ET.SubElement(h,'y').text='%.1f' % loc.location.y
-    ET.SubElement(h,'z').text='%.1f' % (loc.meetpunt.ahn or loc.location.z)
+    z = loc.meetpunt.ahn or loc.location.z
+    if z:
+        ET.SubElement(h,'z').text='%.1f' % z
 
     ll = loc.latlon()
     ET.SubElement(h,'lon').text='%.8f' % ll.x
