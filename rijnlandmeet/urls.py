@@ -19,7 +19,7 @@ from views import to_fews, waarnemer_to_fews, meetpunt_to_fews
 from iom import urls
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+#    url(r'^admin/', include(admin.site.urls)),
     url(r'^fews/$', to_fews),
     url(r'^fews/(?P<pk>\d+)/$', to_fews),
     url(r'^waarnemer/fews/(?P<pk>\d+)$', waarnemer_to_fews),
