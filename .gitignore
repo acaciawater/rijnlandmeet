@@ -54,7 +54,6 @@ coverage.xml
 local_settings.py
 logs/
 media/
-static/
 .settings/
 secrets.py
 
@@ -92,3 +91,4 @@ ENV/
 
 # Rope project settings
 .ropeproject
+/ahn.json
