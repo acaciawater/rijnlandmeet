@@ -59,9 +59,10 @@ def add_series(root,series):
     ET.SubElement(h,'longName').text=unicode(loc.meetpunt.waarnemer)
     ET.SubElement(h,'stationName').text=unicode(loc)
     ET.SubElement(h,'units').text=series.unit
-    ET.SubElement(h,'x').text='%.1f' % loc.location.x
-    ET.SubElement(h,'y').text='%.1f' % loc.location.y
-    z = loc.meetpunt.ahn or loc.location.z
+    rd = loc.RD()
+    ET.SubElement(h,'x').text='%.1f' % rd.x
+    ET.SubElement(h,'y').text='%.1f' % rd.y
+    z = loc.meetpunt.ahn
     if z:
         ET.SubElement(h,'z').text='%.1f' % z
 

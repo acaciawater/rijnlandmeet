@@ -153,6 +153,11 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'acacia.data': {
+            'handlers': ['file',],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
         'rijnlandmeet': {
             'handlers': ['file',],
             'level': 'DEBUG',
