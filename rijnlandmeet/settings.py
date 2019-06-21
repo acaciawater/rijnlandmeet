@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
+import os, sys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -136,6 +136,11 @@ LOGGING = {
             'interval': 1, # every day a new file
             'backupCount': 0,
         },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'stream': sys.stdout
+        },
     },
     'formatters': {
         'default': {
@@ -153,13 +158,18 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'iom.management': {
+            'handlers': ['console',],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
         'acacia.data': {
             'handlers': ['file',],
             'level': 'DEBUG',
             'propagate': True,
         },
         'rijnlandmeet': {
-            'handlers': ['file',],
+            'handlers': ['file','console'],
             'level': 'DEBUG',
             'propagate': True,
         },
