@@ -23,7 +23,7 @@ SITE_ID = 1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','rijnlandmeet.nl']
+ALLOWED_HOSTS = ['www.rijnlandmeet.nl','rijnlandmeet.nl']
 
 INSTALLED_APPS = (
     'grappelli',
